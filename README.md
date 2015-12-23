@@ -6,7 +6,7 @@ Based on official `centos:7` image.
 
 Modification:
 - ru\_RU locales added,
-- [gosu][gosu] by @tianon added (lightweight `su`/`sudo` replacement which gives `setuid`, `setgid`, sets `$HOME` and does `exec`).
+- [gosu][gosu] by [@tianon][tianon] added (lightweight `su`/`sudo` replacement which gives `setuid`, `setgid`, sets `$HOME` and does `exec`).
 
 Is part of the [docker-components][dcomp] repo.
 
@@ -14,6 +14,7 @@ Is part of the [docker-components][dcomp] repo.
 [dhub]: https://hub.docker.com/u/grossws/
 [dcomp]: https://github.com/grossws/docker-components
 [gosu]: https://github.com/tianon/gosu
+[tianon]: https://github.com/tianon
 
 
 # Licensing

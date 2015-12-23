@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:6
 MAINTAINER Konstantin Gribov <grossws@gmail.com>
 
 ENV GOSU_URL https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64

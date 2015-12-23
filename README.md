@@ -2,7 +2,7 @@
 
 CentOS basic [Dockerfiles][df] for automated builds on [docker hub][dhub].
 
-Based on official `centos:7` image.
+Based on official `centos:6` image.
 
 Modification:
 - ru\_RU locales added,

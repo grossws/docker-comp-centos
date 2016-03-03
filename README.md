@@ -1,10 +1,11 @@
 # Info
 
-CentOS basic [Dockerfiles][df] for automated builds on [docker hub][dhub].
+CentOS basic [Dockerfiles][df] with dev tools for automated builds on [docker hub][dhub].
 
 Based on official `centos:7` image.
 
 Modification:
+- development tools group installed
 - ru\_RU locales added,
 - [gosu][gosu] by [@tianon][tianon] added (lightweight `su`/`sudo` replacement which gives `setuid`, `setgid`, sets `$HOME` and does `exec`).
 

@@ -1,7 +1,9 @@
 FROM centos:7
 MAINTAINER Konstantin Gribov <grossws@gmail.com>
 
-ENV GOSU_URL https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64
+ARG GOSU_VERSION=1.9
+ARG GOSU_URL=https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64
+
 RUN gpg --keyserver pgp.mit.edu --recv-keys \
   B42F6819007F00F88E364FD4036A9C25BF357DD4 \
   && curl -sSL $GOSU_URL -o /bin/gosu \

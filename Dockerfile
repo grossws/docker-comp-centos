@@ -1,7 +1,7 @@
 FROM centos:6
 MAINTAINER Konstantin Gribov <grossws@gmail.com>
 
-ARG GOSU_VERSION=1.9
+ARG GOSU_VERSION=1.10
 ARG GOSU_URL=https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64
 
 RUN gpg --keyserver pgp.mit.edu --recv-keys \

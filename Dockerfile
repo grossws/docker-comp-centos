@@ -4,8 +4,9 @@ MAINTAINER Konstantin Gribov <grossws@gmail.com>
 ARG GOSU_VERSION=1.10
 ARG GOSU_URL=https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64
 
-RUN gpg --keyserver pgp.mit.edu --recv-keys \
-  B42F6819007F00F88E364FD4036A9C25BF357DD4 \
+RUN gpg -k &> /dev/null \
+  && echo 'keyid-format long' >> /root/.gnupg/gpg.conf \
+  && gpg --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
   && curl -sSL $GOSU_URL -o /bin/gosu \
   && chmod +x /bin/gosu \
   && curl -sSL $GOSU_URL.asc -o /tmp/gosu.asc \

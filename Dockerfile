@@ -16,6 +16,7 @@ RUN gpg -k &> /dev/null \
 RUN yum -y update \
   && yum -y install tar \
   && yum clean all \
+  && rm -rf /var/cache/yum \
   && localedef -i en_US -f UTF-8 en_US.UTF-8 \
   && localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 \
   && localedef -i ru_RU -f CP1251 ru_RU.CP1251

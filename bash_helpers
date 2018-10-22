@@ -33,3 +33,10 @@ function yumi() {
   rm -rf /var/cache/yum
   log "installed packages $@"
 }
+
+function yumgi() {
+  yum group install -y "$@"
+  yum clean all &> /dev/null
+  rm -rf /var/cache/yum
+  log "installed package groups $@"
+}

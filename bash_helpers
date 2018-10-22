@@ -15,6 +15,14 @@ function gpg_parse_keys() {
   curl --silent --show-error --location "$1" | gpg --with-fingerprint --with-colons | grep "^fpr" | cut -d: -f10
 }
 
+function apache_dl_url() {
+  echo -n "https://www.apache.org/dyn/closer.lua?action=download&filename=$1"
+}
+
+function apache_dist_url() {
+  echo -n "https://www.apache.org/dist/$1"
+}
+
 function dl_and_verify() {
   local URL=$1
   local DEST=$2

@@ -1,5 +1,8 @@
 FROM centos:7
-MAINTAINER Konstantin Gribov <grossws@gmail.com>
+
+LABEL org.label-schema.name="CentOS 7 with tianon/gosu and helpers" \
+  org.label-schema.vcs-url="https://github.com/grossws/docker-comp-centos" \
+  maintainer="Konstantin Gribov <grossws@gmail.com>"
 
 ARG GOSU_VERSION=1.10
 ARG GOSU_URL=https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64

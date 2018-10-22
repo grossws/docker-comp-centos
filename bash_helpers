@@ -35,6 +35,12 @@ function dl_and_verify() {
   log "sig ok"
 }
 
+function yumu() {
+  yum update -y
+  yum clean all &> /dev/null
+  rm -rf /var/cache/yum
+}
+
 function yumi() {
   yum install -y "$@"
   yum clean all &> /dev/null

@@ -14,7 +14,7 @@ RUN set -o errexit; set -o pipefail; source /root/.bash_helpers; \
   gpg_rk B42F6819007F00F88E364FD4036A9C25BF357DD4; \
   dl_and_verify ${GOSU_URL} /bin/gosu; \
   chmod +x /bin/gosu; \
-  yum -y update; \
+  yumu; \
   localedef -i en_US -f UTF-8 en_US.UTF-8; \
   localedef -i ru_RU -f UTF-8 ru_RU.UTF-8; \
   localedef -i ru_RU -f CP1251 ru_RU.CP1251

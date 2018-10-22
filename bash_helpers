@@ -11,8 +11,8 @@ function gpg_rk() {
   gpg --recv-keys "$@" &> /dev/null
 }
 
-function gpg_parse_apache() {
-  curl -sSL "$1" | gpg --with-fingerprint --with-colons | grep "^fpr" | cut -d: -f10
+function gpg_parse_keys() {
+  curl --silent --show-error --location "$1" | gpg --with-fingerprint --with-colons | grep "^fpr" | cut -d: -f10
 }
 
 function dl_and_verify() {
@@ -20,8 +20,8 @@ function dl_and_verify() {
   local DEST=$2
   local URL_SIG=${3:-${URL}.asc}
   log "downloading ${URL} to ${DEST} (sig: ${URL_SIG})"
-  curl -sSL ${URL} -o ${DEST}
-  curl -sSL ${URL_SIG} -o ${DEST}.asc
+  curl --silent --show-error --location ${URL} --output ${DEST}
+  curl --silent --show-error --location ${URL_SIG} --output ${DEST}.asc
   gpg --verify ${DEST}.asc ${DEST} &> /dev/null
   rm -f ${DEST}.asc
   log "sig ok"

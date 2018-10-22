@@ -2,8 +2,8 @@
 
 function log() {
   local LEVEL=INFO
-  [[ $# -gt 1 ]] && LEVEL=$1 && shift
-  echo "[${LEVEL}]: $1"
+  [[ $# -gt 2 && $1 = "-l" ]] && LEVEL=$2 && shift 2
+  echo "[${LEVEL}]: $@"
 }
 
 function gpg_rk() {

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+function log() {
+  local LEVEL=INFO
+  [[ $# -gt 1 ]] && LEVEL=$1 && shift
+  echo "[${LEVEL}]: $1"
+}
+
+function gpg_rk() {
+  log "getting gpg keys [$@]"
+  gpg --recv-keys "$@" &> /dev/null
+}
+
+function gpg_parse_apache() {
+  curl -sSL "$1" | gpg --with-fingerprint --with-colons | grep "^fpr" | cut -d: -f10
+}
+
+function dl_and_verify() {
+  local URL=$1
+  local DEST=$2
+  local URL_SIG=${3:-${URL}.asc}
+  log "downloading ${URL} to ${DEST} (sig: ${URL_SIG})"
+  curl -sSL ${URL} -o ${DEST}
+  curl -sSL ${URL_SIG} -o ${DEST}.asc
+  gpg --verify ${DEST}.asc ${DEST} &> /dev/null
+  rm -f ${DEST}.asc
+  log "sig ok"
+}
+
+function yumi() {
+  yum install -y "$@"
+  yum clean all &> /dev/null
+  rm -rf /var/cache/yum
+  log "installed packages $@"
+}

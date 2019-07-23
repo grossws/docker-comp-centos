@@ -1,0 +1,5 @@
+FROM grossws/centos:7
+
+RUN set -o errexit; set -o pipefail; source /root/.bash_helpers; \
+  yumgi @development
+

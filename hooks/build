@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker build -f ${DOCKERFILE_PATH} -t ${DOCKER_REPO}:7 .
+docker build -f ${DOCKERFILE_PATH}.dev -t ${DOCKER_REPO}:7-dev .
+

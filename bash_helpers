@@ -11,6 +11,11 @@ function gpg_rk() {
   gpg --recv-keys "$@" &> /dev/null
 }
 
+function gpg_clean() {
+  log "cleaning gpg homedig"
+  rm -rf ~/.gnupg
+}
+
 function gpg_parse_keys() {
   curl --silent --show-error --location "$1" | gpg --with-fingerprint --with-colons | grep "^fpr" | cut -d: -f10
 }

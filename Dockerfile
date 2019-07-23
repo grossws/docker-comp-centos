@@ -4,7 +4,7 @@ LABEL org.label-schema.name="CentOS 7 with tianon/gosu, bash helpers & locales" 
   org.label-schema.vcs-url="https://github.com/grossws/docker-comp-centos" \
   maintainer="Konstantin Gribov <grossws@gmail.com>"
 
-ARG GOSU_VERSION=1.10
+ARG GOSU_VERSION=1.11
 ARG GOSU_URL=https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64
 
 COPY bash_helpers /root/.bash_helpers
